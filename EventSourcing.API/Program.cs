@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Reflection;
+using EventSourcing.API.BackgroundServices;
 using EventSourcing.API.EventStore;
 using EventSourcing.API.Models;
 using MediatR;
@@ -28,11 +29,12 @@ builder.Services.AddSingleton<ProductStream>();
 
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(config.GetConnectionString("SqlCon"));
 });
-
+builder.Services.AddHostedService<ProductReadModelEventStore>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
