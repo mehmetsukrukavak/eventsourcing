@@ -41,7 +41,6 @@
     <Folder Include="DTOs\" />
     <Folder Include="Commands\" />
     <Folder Include="EventStore\" />
-    <Folder Include="Handlers\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="BackgroundServices\" />
